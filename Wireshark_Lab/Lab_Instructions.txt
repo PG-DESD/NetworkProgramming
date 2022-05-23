@@ -18,3 +18,9 @@ Q6. Which TCP flag is set in this packet?
 Q7. What is the frame number of the next packet in this TCP conversation?
 
 Q8. Can you set a filter for this TCP conversation? How many packets do you get?
+
+Q9. Create your Own Profile and Set Layout Pane3 as Packet Diagram?
+
+Q10. Add a coloring rule that will make your tcp FIN packets blue. What filter will you use to do that? 
+
+Q11. Select packet number 1. Can you find the TCP segment length? Add this value as a column.
