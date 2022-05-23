@@ -1,0 +1,20 @@
+Download the Wiresharkintro.pcapng for this lab using the link below and try to answer the following questions. 
+Some of the questions are easier to find, some might take some research. 
+The point is to get some hands-on with Wireshark.
+
+Questions for this assignment
+Q1. How many packets were captured in this trace file?
+
+Q2. What protocol does packet number 8 contain? (The highest-layer protocol)
+
+Q3. If you just installed Wireshark for the first time, what is the name of the profile you are using? (bottom right corner)
+
+Q4. Look at packet number one - what is the source IP address in this packet?
+
+Q5. What is the source TCP port in this same packet?
+
+Q6. What TCP flag is set in this packet?
+
+Q7. What is the frame number of the next packet in this TCP conversation?
+
+Q8. Can you set a filter for this TCP conversation? How many packets do you get?
