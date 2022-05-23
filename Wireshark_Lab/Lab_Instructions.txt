@@ -13,7 +13,7 @@ Q4. Look at packet number one - what is the source IP address in this packet?
 
 Q5. What is the source TCP port in this same packet?
 
-Q6. What TCP flag is set in this packet?
+Q6. Which TCP flag is set in this packet?
 
 Q7. What is the frame number of the next packet in this TCP conversation?
 
