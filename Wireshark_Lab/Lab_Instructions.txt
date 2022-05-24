@@ -23,4 +23,46 @@ Q9. Create your Own Profile and Set Layout Pane3 as Packet Diagram?
 
 Q10. Add a coloring rule that will make your tcp FIN packets blue. What filter will you use to do that? 
 
-Q11. Select packet number 1. Can you find the TCP segment length? Add this value as a column.
+Q11. Select packet number 1 Can you find the TCP segment length? Add this value as a column.
+
+Common Filters
+IPv4 Address -> ip.addr==10.0.0.1
+IPv4 Source -> ip.src==10.0.0.1
+IPv4 Destination -> ip.dst==10.0.0.1
+IPv4 Range(Subnet) -> ip.addr==10.0.0.0/24
+TCP Port -> tcp.port==80
+TCP SYN -> tcp.flags.syn==1
+
+Capture filters are applied when we are bringing packets, 
+into our capture buffer & Display filters are applied after the that.
+
+Filtering According to Subnet
+192.168.10.20/8 = 192.x.x.x
+192.168.10.20/16= 192.168.x.x
+192.168.10.20/24= 192.168.10.x
+
+
+Operators in Filters
+==   !   ||   &&   >   <
+eq  not  or   and  gt  lt
+
+Example : ip.addr eq 192.168.1.1 && tcp
+
+Spl. Filters
+1. Contains (exact string)
+eg: frame contains admin
+
+2. in{range}
+tcp.port in {80 443 8000..8004}
+
+3. matches(regex)[case insensitive]
+http.host matches "\.(org|com|net)"
+
+Q1. How many ARP packets are in the trace file?
+Q2. How many HTTP packets contain word "Php"? (Regardless of case)
+Q3. Set a filter for TCP port 80. How many packets meet that filter?
+Q4. How many packets are in the top(Bytes Transfer) IP conversation? Set a filter for this conversation.
+[Hint: Statistics->Conversations]
+Q5. How many packets have the SYN Flag bit set?
+Q6. How many TCP Resets (flag) are in the pcap?
+Q7. How many packets coming from the 10.0.2.15 station?
