@@ -66,3 +66,30 @@ Q4. How many packets are in the top(Bytes Transfer) IP conversation? Set a filte
 Q5. How many packets have the SYN Flag bit set?
 Q6. How many TCP Resets (flag) are in the pcap?
 Q7. How many packets coming from the 10.0.2.15 station?
+
+Server Client
+Focus on packet number two of client file and answer the following questions. 
+Q1. What is the destination MAC address? (Use format xx:xx:xx:xx:xx:xx
+
+Q2. What is the source MAC in this packet?
+
+Q3. What is the IP identification number? (Use format xxxxxx with no commas)
+
+Q4. What is the IP Time To Live?
+
+Q5. What is the Source IP?
+
+Q6. Now change pcaps to the server side. Open server-slowfiledownload.pcapng. Which packet corresponds to the packet we were analyzing on the client side? What is the frame number?
+
+Q7. Focus on this frame. What is the source MAC?
+
+Q8. What is the destination MAC?
+
+Q9. What is the IP ID?
+
+Q10. What is the IP TTL?
+
+Q11. How many routers did this packet go through?
+
+Q12. Was there a NAT (Network Address Translation) along the path? Y/N
+
