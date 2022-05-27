@@ -93,3 +93,9 @@ Q11. How many routers did this packet go through?
 
 Q12. Was there a NAT (Network Address Translation) along the path? Y/N
 
+Fragmentation
+Q1. Ping Google.com and Trace it via wireshark , check for TTL to get no of routers in the path?
+
+Q2. Analyse ping-fragmentation.pcap file see how frame split when size exceeds 1500 bytes?
+
+Q3. Check Flags "More Fragment" in IPv4 and Does IP ID Changes when Frames are Fragmented Note your Observations?
