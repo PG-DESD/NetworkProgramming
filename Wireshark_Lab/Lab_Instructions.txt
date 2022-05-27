@@ -99,3 +99,29 @@ Q1. Ping Google.com and Trace it via wireshark , check for TTL to get no of rout
 Q2. Analyse ping-fragmentation.pcap file see how frame split when size exceeds 1500 bytes?
 
 Q3. Check Flags "More Fragment" in IPv4 and Does IP ID Changes when Frames are Fragmented Note your Observations?
+
+Spoofing/DDoS Attack
+A distributed denial-of-service (DDoS) attack is a malicious attempt to disrupt the normal traffic of a targeted server, 
+service or network by overwhelming the target or its surrounding infrastructure with a flood of Internet traffic.
+
+Q1. How many unique IP hosts do we see in this pcap?
+
+Q2. How many packets are in the top IP conversation?
+
+Q3. What country is the 62.189.238.32 endpoint communicating from? (Full country name)
+
+Q4. Can you work out how to filter the hosts coming from Turkey? How many packets do you find after filtering for Turkey? (hint: ip.geoip.country_iso==?)
+
+Q5. Look at packet 1 - what is the IP TTL for this packet?
+
+Q6. What is the IP Identification number for this packet?
+
+Q7. Look at packet 7, which appears to be coming from the same subnet. What is the IP Identification number?
+
+Q8. Add IP TTL as a column and filter for all packets coming FROM the 212.252.0.0/16 subnet ranges. (Enter OK as the answer)
+
+Q9. Does the IP TTL change for any of these packets? Y/N
+
+Q10. Add the IP ID as a column. Does the IP ID change for any of these packets? Y/N
+
+Q11. Do you think these packets could be spoofed IP's? Y/N
