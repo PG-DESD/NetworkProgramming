@@ -110,7 +110,7 @@ Q2. How many packets are in the top IP conversation?
 
 Q3. What country is the 62.189.238.32 endpoint communicating from? (Full country name)
 
-Q4. Can you work out how to filter the hosts coming from Turkey? How many packets do you find after filtering for Turkey? (hint: ip.geoip.country_iso==?)
+Q4. Can you work out how to filter the hosts coming from Turkey? How many packets do you find after filtering for Turkey? (hint: ip.geoip.src_country==?)
 
 Q5. Look at packet 1 - what is the IP TTL for this packet?
 
