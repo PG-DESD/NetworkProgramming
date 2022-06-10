@@ -18,7 +18,7 @@ void * socketThread(void *arg)
   recv(newSocket , client_message , 2000 , 0);
   printf("Hello from client %s\n",client_message);
   // Send message to the client socket 
-  memset(client_message,"\0",sizeof(client_message));
+  memset(client_message,'\0',sizeof(client_message));
   pthread_mutex_lock(&lock);
   
   sprintf(buffer, "Hello from server thread : %d\n",clientno);
