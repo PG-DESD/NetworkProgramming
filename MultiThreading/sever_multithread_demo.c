@@ -44,7 +44,7 @@ int main(int argc, char *argv[]){
   int port_no;
   port_no = strtoul(argv[1], NULL, 10);
   //Create the socket. 
-  serverSocket = socket(PF_INET, SOCK_STREAM, 0);
+  serverSocket = socket(AF_INET, SOCK_STREAM, 0);
   // Configure settings of the server address struct
   // Address family = Internet 
   serverAddr.sin_family = AF_INET;
