@@ -51,7 +51,7 @@ int main(int argc, char *argv[]){
   //Set port number, using htons function to use proper byte order 
   serverAddr.sin_port = htons(port_no);
   //Set IP address to localhost 
-  serverAddr.sin_addr.s_addr = inet_addr("127.0.0.1");
+  serverAddr.sin_addr.s_addr = INADDR_ANY;
   //Set all bits of the padding field to 0 
   memset(serverAddr.sin_zero, '\0', sizeof serverAddr.sin_zero);
   //Bind the address struct to the socket 
