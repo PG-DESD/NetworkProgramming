@@ -14,8 +14,8 @@ pthread_mutex_t lock = PTHREAD_MUTEX_INITIALIZER;
 
 void * socketThread(void *arg)
 {
-  int newSocket = *((int *)arg);
-  recv(newSocket , client_message , 2000 , 0);
+  int cfd = *((int *)arg);
+  recv(cfd , client_message , 2000 , 0);
   printf("Hello from client %s\n",client_message);
   // Send message to the client socket 
   memset(client_message,'\0',sizeof(client_message));
@@ -26,13 +26,13 @@ void * socketThread(void *arg)
   pthread_mutex_unlock(&lock);
   
   sleep(1);
-  send(newSocket,buffer,(int)strlen(buffer),0);
-  close(newSocket);
+  send(cfd,buffer,(int)strlen(buffer),0);
+  close(cfd);
   pthread_exit(NULL);
 }
 
 int main(int argc, char *argv[]){
-  int serverSocket, newSocket;
+  int sfd, cfd;
   struct sockaddr_in serverAddr;
   struct sockaddr_storage serverStorage;
   socklen_t addr_size;
@@ -45,7 +45,7 @@ int main(int argc, char *argv[]){
   int port_no;
   port_no = strtoul(argv[1], NULL, 10);
   //Create the socket. 
-  serverSocket = socket(AF_INET, SOCK_STREAM, 0);
+  sfd = socket(AF_INET, SOCK_STREAM, 0);
   // Configure settings of the server address struct
   // Address family = Internet 
   serverAddr.sin_family = AF_INET;
@@ -56,9 +56,9 @@ int main(int argc, char *argv[]){
   //Set all bits of the padding field to 0 
   memset(serverAddr.sin_zero, '\0', sizeof serverAddr.sin_zero);
   //Bind the address struct to the socket 
-  bind(serverSocket, (struct sockaddr *) &serverAddr, sizeof(serverAddr));
+  bind(sfd, (struct sockaddr *) &serverAddr, sizeof(serverAddr));
   //Listen on the socket, with 50 max connection requests queued 
-  if(listen(serverSocket,50)==0)
+  if(listen(sfd,50)==0)
     printf("Listening\n");
     
     
@@ -71,12 +71,12 @@ int main(int argc, char *argv[]){
         //Accept call creates a new socket for the incoming connection
        
         addr_size = sizeof serverStorage;
-        newSocket = accept(serverSocket, (struct sockaddr *) &serverStorage, &addr_size);
+        cfd = accept(sfd, (struct sockaddr *) &serverStorage, &addr_size);
 		printf("Accepted a new client no:%d\n",i);
         clientno++;
         //for each client request creates a thread and assign the client request to it to process
        //so the main thread can entertain next request
-        if( pthread_create(&tid[i++], NULL, socketThread, &newSocket) != 0 )
+        if( pthread_create(&tid[i++], NULL, socketThread, &cfd) != 0 )
            printf("Failed to create thread\n");
 
         if( i >= 50)
