@@ -1,1 +1,5 @@
+Get Mac Address of ESP32
 https://randomnerdtutorials.com/get-change-esp32-esp8266-mac-address-arduino/
+
+MAC Address SSID Excel Sheet
+https://docs.google.com/spreadsheets/d/1MN1hzcDe5iXYNeMBirO3eXogHdtOHkvWYypxN-PYdjg/edit?usp=sharing
