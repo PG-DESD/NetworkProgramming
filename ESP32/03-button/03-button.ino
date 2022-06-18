@@ -1,5 +1,5 @@
-#define PIN_LED 32
-#define PIN_BUTTON 34
+#define PIN_LED 2
+#define PIN_BUTTON 0
 #define DEBOUNCE_DELAY 300
 
 bool currentLEDState = false;
