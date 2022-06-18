@@ -1,12 +1,14 @@
-/////////////////////////////////
-// Generated with a lot of love//
-// with TUNIOT FOR ESP32     //
-// Website: Easycoding.tn      //
-/////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////
+// Please use Your Mobile HotSpot to Test This Program                          //
+// Also Note that CDAC Network has Jammers that Block the HOTSPOT of your Mobile//
+//Client and Server Must be Connected to same HotSpot//
+////////////////////////////////////////////////
 #include <WiFi.h>
 
 String  ClientRequest;
+//Below IP Address Will be Used by Client to Connect to this Server
 IPAddress staticIP316_10(192,168,1,10);
+//Below is the IP Address of the Mobile Gateway
 IPAddress gateway316_10(192,168,1,1);
 IPAddress subnet316_10(255,255,255,0);
 
