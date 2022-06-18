@@ -2,7 +2,7 @@
 #define PIN_BUTTON 0
 #define DEBOUNCE_DELAY 300
 
-bool currentLEDState = false;
+bool currentLEDState = true;
 
 void setup(){
 
@@ -17,7 +17,9 @@ void setup(){
 void loop(){
 
   int reading = digitalRead(PIN_BUTTON);
-
+  
+  delay(DEBOUNCE_DELAY);	
+  
   if(reading == HIGH){
     
     currentLEDState = !currentLEDState;
