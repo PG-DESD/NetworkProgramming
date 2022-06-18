@@ -20,7 +20,7 @@ void loop(){
   
   delay(DEBOUNCE_DELAY);	
   
-  if(reading == HIGH){
+  if(reading == LOW){
     
     currentLEDState = !currentLEDState;
 
