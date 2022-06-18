@@ -9,7 +9,7 @@ WiFiClient client;
 String myurl = "/";
 void setup()
 {
-Serial.begin(9600);
+Serial.begin(115200);
 
   WiFi.disconnect();
   delay(3000);
