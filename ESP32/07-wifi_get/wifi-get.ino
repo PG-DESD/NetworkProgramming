@@ -5,6 +5,8 @@
 #define PIN_BUTTON 0
 #define DEBOUNCE_DELAY 300
 
+#define GET_DELAY 3000
+
 #define WIFI_SSID "XXX"
 #define WIFI_PASS "XXX"
 
@@ -13,6 +15,9 @@
 unsigned long lastDebounceTime = 0;
 
 int numberToSend = 1234;
+
+unsigned long lastGETTime = 0;
+bool ledState = false;
 
 void setup(){
 
@@ -67,6 +72,48 @@ void loop(){
     Serial.println(textToSend);
     postRequest(textToSend);
   }
+
+  currentTime = millis();
+
+  if((currentTime - lastGETTime) > GET_DELAY) {
+    lastGETTime = currentTime;
+    String result = getRequest();
+
+    if(result == "on" && ledState == false){
+      ledState = true;
+      digitalWrite(PIN_LED, HIGH);
+      Serial.println("Got On so turn LED on");
+    
+    } else if (result == "off" && ledState == true){
+      ledState = false;
+      digitalWrite(PIN_LED, LOW);
+      Serial.println("Got Off so turn LED off");
+    }
+  }
+  
+}
+
+
+String getRequest(){
+
+   HTTPClient http;
+ 
+   http.begin(HOST);
+   http.addHeader("Content-Type", "text/plain");
+ 
+   int httpCode = http.GET();
+   String payload = http.getString();
+ 
+//   Serial.println(httpCode);
+//   Serial.println(payload);
+ 
+   http.end();
+
+   if(httpCode == 200){
+    return payload;
+   } else {
+    return "";
+   }
   
 }
 
