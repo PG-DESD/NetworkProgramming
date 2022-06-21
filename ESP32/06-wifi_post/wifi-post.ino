@@ -5,10 +5,10 @@
 #define PIN_BUTTON 0
 #define DEBOUNCE_DELAY 300
 
-#define WIFI_SSID "XXX"
-#define WIFI_PASS "XXX"
+#define WIFI_SSID "Benga_Boyzzzz"
+#define WIFI_PASS "Benga@4321"
 
-#define HOST "http://X.X.X.X:80/"
+#define HOST "http://192.168.1.21:80/"
 
 unsigned long lastDebounceTime = 0;
 

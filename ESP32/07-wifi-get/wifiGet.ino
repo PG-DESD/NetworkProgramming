@@ -7,10 +7,10 @@
 
 #define GET_DELAY 3000
 
-#define WIFI_SSID "XXX"
-#define WIFI_PASS "XXX"
+#define WIFI_SSID "Benga_Boyzzzz"
+#define WIFI_PASS "Benga@4321"
 
-#define HOST "http://X.X.X.X:80/"
+#define HOST "http://192.168.1.21:80/"
 
 unsigned long lastDebounceTime = 0;
 
@@ -78,17 +78,18 @@ void loop(){
   if((currentTime - lastGETTime) > GET_DELAY) {
     lastGETTime = currentTime;
     String result = getRequest();
+    Serial.println(result);
 
-    if(result == "on" && ledState == false){
-      ledState = true;
-      digitalWrite(PIN_LED, HIGH);
-      Serial.println("Got On so turn LED on");
-    
-    } else if (result == "off" && ledState == true){
-      ledState = false;
-      digitalWrite(PIN_LED, LOW);
-      Serial.println("Got Off so turn LED off");
-    }
+//    if(result == "on" && ledState == false){
+//      ledState = true;
+//      digitalWrite(PIN_LED, HIGH);
+//      Serial.println("Got On so turn LED on");
+//    
+//    } else if (result == "off" && ledState == true){
+//      ledState = false;
+//      digitalWrite(PIN_LED, LOW);
+//      Serial.println("Got Off so turn LED off");
+//    }
   }
   
 }
