@@ -11,6 +11,9 @@
 #include <WiFiClientSecure.h>
 #include <PubSubClient.h> // install with Library Manager, I used v2.6.0
 /*
+//Used the Below Liberary
+//https://github.com/knolleary/pubsubclient
+
 //Enter Your Wifi Name or HotSpot Name i.e. SSID
 const char* ssid = "<YOUR-SSID>";
 const char* password = "<YOUR-PASSWORD>";
@@ -22,10 +25,8 @@ const char* password = "Ridrun20";
 //1. Sever Address
 const char* awsEndpoint = "a1pkt6llab8sur-ats.iot.us-east-2.amazonaws.com";
 
-// Update the two certificate strings below. Paste in the text of your AWS 
-// device certificate and private key. Add a quote character at the start
-// of each line and a backslash, n, quote, space, backslash at the end 
-// of each line:
+// Update the certificate & Private Key strings below. Paste in the text of your AWS 
+// device certificate and private key. 
 
 // Device Certificate
 static const char certificatePemCrt[] PROGMEM = R"KEY(

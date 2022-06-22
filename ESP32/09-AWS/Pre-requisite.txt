@@ -1,0 +1,30 @@
+1. Create IOT All Access Policy in AWS
+AWS_Console->IAM->AccessManagement->Policies->Create Policy
+Select Service IoT
+Actions : All IoT actions (iot:*)
+Resources: All resources
+
+2. Create IoT Core Access Policies
+AWS_Console->Iot_Core->Security->Policies->Create Policy
+Policy name: <name>
+Policy effect:Allow
+Policy action:*
+Policy resource:*
+
+3. Create IoT Core Access Certificate
+AWS_Console->Iot_Core->Security->Certificate->Add Certificate->Create Certificate
+Auto-generate new certificate (recommended)
+Certificate status: Active
+Download the Certificate: NOTE ***This is the only time you can download the key files for this certificate.
+Only 3 Certificates are Required 
+a. Device certificate
+b. Private key file
+c. Root CA certificates->Amazon trust services endpoint
+
+4. Note Your Endpoint Address
+AWS IoT->Settings->Device data endpoint
+Example : abcd12dfsur-ats.iot.us-east-1.amazonaws.com
+
+
+Extra DynamoDB:
+https://docs.aws.amazon.com/iot/latest/developerguide/iot-ddb-rule.html
