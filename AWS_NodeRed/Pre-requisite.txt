@@ -4,6 +4,19 @@ a role is a type of IAM identity that can be authenticated and
 authorized to utilize an AWS resource, 
 whereas a policy defines the permissions of the IAM identity.
 
+Example for Policy:
+The policy stipulates that access to a particular resource is 
+allowed on all dates except between April 1, 2022 and June 30, 2022. 
+In order to use this policy, the "action" statement needs to 
+be specified by an admin, then you assign that action to an 
+identity (user, group, or role).
+
+Example for Role:
+Administrators create roles that are tied to specific policies that 
+are appropriate for the new project. Employees—both current and 
+new employees—can then be easily assigned to their new roles so 
+that they only have access to what their new positions require. 
+
 1. Create IOT All Access Policy in AWS
 AWS_Console->IAM->AccessManagement->Policies->Create Policy
 Select Service IoT
@@ -30,3 +43,29 @@ c. Root CA certificates->Amazon trust services endpoint
 4. Note Your Endpoint Address
 AWS IoT->Settings->Device data endpoint
 Example : abcd12dfsur-ats.iot.us-east-1.amazonaws.com
+
+5. Update the above info in Node Red
+a. server: abcd12dfsur-ats.iot.us-east-1.amazonaws.com
+b. Device certificate
+c. Private key file
+d. AmazonRootCA1 certificates
+
+6. Test the Data in MQTT Test Client
+Subscribe to topic: demo
+
+7. Forward this data to Dynamodb
+Message Routing -> Rules-> Create rule->Rule Name:<name>->Action 1-> Link DynamoDBv2 
+
+SQL statement
+SELECT * FROM 'demo'
+
+Partition Key of the table must be as Below Format
+
+PartitionKey: timestamp as a String the device  JSON is:  "timestamp":  "12345" 
+
+PartitionKey: timestamp as a Number the device JSON is "timestamp": 12345
+
+No quotes for numbers as per JSON formatting standards
+
+Note:if you enter a string type but mistakenly designate a number 
+for the incoming data then the data wont be recognized in DynamoDB.
