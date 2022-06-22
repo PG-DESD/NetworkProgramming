@@ -1,3 +1,8 @@
+The difference between IAM roles and policies in AWS is that
+a role is a type of IAM identity that can be authenticated and 
+authorized to utilize an AWS resource, 
+whereas a policy defines the permissions of the IAM identity.
+
 1. Create IOT All Access Policy in AWS
 AWS_Console->IAM->AccessManagement->Policies->Create Policy
 Select Service IoT
