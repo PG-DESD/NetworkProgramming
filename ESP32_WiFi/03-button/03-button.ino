@@ -3,6 +3,7 @@
 #define DEBOUNCE_DELAY 300
 
 bool currentLEDState = true;
+unsigned long lastDebounceTime = 0;
 
 void setup(){
 
@@ -17,11 +18,13 @@ void setup(){
 void loop(){
 
   int reading = digitalRead(PIN_BUTTON);
+  unsigned long currentTime = millis();
   
-  delay(DEBOUNCE_DELAY);	
-  
-  if(reading == LOW){
+  if((reading == LOW) 
+    && ((currentTime - lastDebounceTime) > DEBOUNCE_DELAY)){
+    // Process the button press if we have exceed the debounce time
     
+	lastDebounceTime = currentTime;
     currentLEDState = !currentLEDState;
 
     Serial.print("Changing LED state to: ");
