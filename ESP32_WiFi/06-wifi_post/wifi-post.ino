@@ -8,7 +8,8 @@
 #define WIFI_SSID "Benga_Boyzzzz"
 #define WIFI_PASS "Benga@4321"
 
-#define HOST "http://192.168.1.21:80/"
+//This will be the Address:Port of HOST PC in Which Python Server is Running
+#define HOST "http://192.168.1.3:12345/esp32"
 
 unsigned long lastDebounceTime = 0;
 
@@ -53,14 +54,14 @@ void loop(){
   int reading = digitalRead(PIN_BUTTON);
   unsigned long currentTime = millis();
 
-  if((reading == HIGH) 
+  if((reading == LOW) 
     && ((currentTime - lastDebounceTime) > DEBOUNCE_DELAY)){
     // Process the button press if we have exceed the debounce time
     
     lastDebounceTime = currentTime;
 
     String macAddr = WiFi.macAddress();
-    String textToSend = "ESP32 " + macAddr + " value " + String(numberToSend);
+    String textToSend = "Hello from ESP32 my MAC Address:" + macAddr + " Test Random Value: " + String(numberToSend);
     numberToSend++;
 
     Serial.print("Button pressed, sending: ");

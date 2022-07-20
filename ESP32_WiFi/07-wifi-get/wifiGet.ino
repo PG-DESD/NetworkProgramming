@@ -10,7 +10,8 @@
 #define WIFI_SSID "Benga_Boyzzzz"
 #define WIFI_PASS "Benga@4321"
 
-#define HOST "http://192.168.1.21:80/"
+//This will be the Address:Port of HOST PC in Which Python Server is Running
+#define HOST "http://192.168.1.3:12345/"
 
 unsigned long lastDebounceTime = 0;
 
@@ -58,7 +59,7 @@ void loop(){
   int reading = digitalRead(PIN_BUTTON);
   unsigned long currentTime = millis();
 
-  if((reading == HIGH) 
+  if((reading == LOW) 
     && ((currentTime - lastDebounceTime) > DEBOUNCE_DELAY)){
     // Process the button press if we have exceed the debounce time
     
@@ -78,8 +79,10 @@ void loop(){
   if((currentTime - lastGETTime) > GET_DELAY) {
     lastGETTime = currentTime;
     String result = getRequest();
+    Serial.print("Return Value:");
     Serial.println(result);
 
+//You can toggle LED Based on the Value that you send from Python Server
 //    if(result == "on" && ledState == false){
 //      ledState = true;
 //      digitalWrite(PIN_LED, HIGH);
